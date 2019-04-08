@@ -1,0 +1,25 @@
+{
+    "name": "galexth/laravel-pagination",
+    "description": "Laravel and lumen pagination",
+    "keywords": ["pagination", "laravel", "lumen", "paginator"],
+    "type": "library",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Alex G",
+            "email": "alexander.g.gorlov@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "ext-json": "*",
+        "illuminate/support": "5.8.*",
+        "illuminate/database": "5.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Galexth\\LaravelPagination\\": "src/"
+        }
+    }
+}
