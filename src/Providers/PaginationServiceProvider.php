@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Providers;
+namespace Galexth\LaravelPagination\Providers;
 
-use Galexth\Pagination\LengthAwarePaginator;
+use Galexth\LaravelPagination\LengthAwarePaginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
 

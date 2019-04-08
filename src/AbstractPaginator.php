@@ -1,6 +1,6 @@
 <?php
 
-namespace Galexth\Pagination;
+namespace Galexth\LaravelPagination;
 
 use ArrayAccess;
 use Illuminate\Contracts\Support\Arrayable;
