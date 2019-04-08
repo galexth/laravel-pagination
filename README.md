@@ -1,1 +1,1 @@
-# Support
+# Laravel pagination
