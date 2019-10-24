@@ -15,9 +15,9 @@ class PaginationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Builder::macro('offsetPaginate', function (int $offset = 0, int $limit = 20) {
+        Builder::macro('iterate', function (int $offset = 0, int $limit = 20) {
             /** @var Builder $this */
-            $results = $this->skip($offset)->limit($limit)->get();
+            $results = $this->skip($offset)->limit($limit + 1)->get();
 
             return new Paginator($results, $offset, $limit);
         });
