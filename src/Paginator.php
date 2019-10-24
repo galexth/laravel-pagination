@@ -4,26 +4,37 @@ namespace Galexth\LaravelPagination;
 
 use Illuminate\Support\Collection;
 
-class LengthAwarePaginator extends AbstractPaginator
+class Paginator extends AbstractPaginator
 {
     /**
-     * @var int
+     * @var bool
      */
-    protected $total;
+    protected $hasMore = false;
 
     /**
-     * LengthAwarePaginator constructor.
+     * Paginator constructor.
      *
      * @param \Illuminate\Support\Collection $collection
-     * @param int                            $total
      * @param int                            $offset
      * @param int                            $limit
      */
-    public function __construct(Collection $collection, int $total, int $offset = 0, int $limit = 20)
+    public function __construct(Collection $collection, int $offset = 0, int $limit = 20)
     {
         parent::__construct($collection, $offset, $limit);
 
-        $this->total = $total;
+        $this->checkForMorePages();
+    }
+
+    /**
+     * Check for more pages. The last item will be sliced off.
+     *
+     * @return void
+     */
+    protected function checkForMorePages()
+    {
+        $this->hasMore = $this->items->count() > $this->limit;
+
+        $this->items = $this->items->slice(0, $this->limit);
     }
 
     /**
@@ -36,7 +47,7 @@ class LengthAwarePaginator extends AbstractPaginator
         return [
             'limit' => $this->limit,
             'offset' => $this->offset,
-            'total' => $this->total,
+            'has_more' => $this->offset,
             'data' => $this->items->toArray(),
         ];
     }

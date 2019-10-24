@@ -5,6 +5,7 @@ namespace Galexth\LaravelPagination;
 use ArrayAccess;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Support\Collection;
 use JsonSerializable;
 
 abstract class AbstractPaginator implements Arrayable, ArrayAccess, JsonSerializable, Jsonable
@@ -12,7 +13,7 @@ abstract class AbstractPaginator implements Arrayable, ArrayAccess, JsonSerializ
     /**
      * All of the items being paginated.
      *
-     * @var \Illuminate\Support\Collection
+     * @var Collection
      */
     protected $items;
 
@@ -29,6 +30,20 @@ abstract class AbstractPaginator implements Arrayable, ArrayAccess, JsonSerializ
      * @var int
      */
     protected $limit;
+
+    /**
+     * LengthAwarePaginator constructor.
+     *
+     * @param \Illuminate\Support\Collection $collection
+     * @param int                            $offset
+     * @param int                            $limit
+     */
+    public function __construct(Collection $collection, int $offset = 0, int $limit = 20)
+    {
+        $this->limit = $limit;
+        $this->offset = $offset;
+        $this->items = $collection;
+    }
 
     /**
      * @return array
