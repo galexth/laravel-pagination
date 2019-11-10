@@ -47,7 +47,7 @@ class Paginator extends AbstractPaginator
         return [
             'limit' => $this->limit,
             'offset' => $this->offset,
-            'has_more' => $this->offset,
+            'has_more' => $this->hasMore,
             'data' => $this->items->toArray(),
         ];
     }
