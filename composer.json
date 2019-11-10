@@ -3,7 +3,7 @@
     "description": "Laravel and lumen pagination",
     "keywords": ["pagination", "laravel", "lumen", "paginator"],
     "type": "library",
-    "license": "GNU",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alex G",
